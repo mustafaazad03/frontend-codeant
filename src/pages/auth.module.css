@@ -1,0 +1,354 @@
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.stats {
+  display: none;
+  padding: 48px;
+  background-color: #F9FAFB;
+}
+
+.statsHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.statsHeader h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.issuesFixed {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.issuesChart {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #EEF2FF;
+  position: relative;
+  overflow: hidden;
+}
+
+.chartProgress {
+  position: absolute;
+  inset: 0;
+  background: #818CF8;
+  transform: rotate(calc(var(--progress) * 3.6deg));
+  transform-origin: 50% 50%;
+}
+
+.issuesValue {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.issuesLabel {
+  font-size: 14px;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.issuesIncrease {
+  color: #10B981;
+}
+
+.issuesPeriod {
+  color: #9CA3AF;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.authContent {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.providers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.providerIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.terms {
+  font-size: 14px;
+  color: #818181;
+  text-align: center;
+}
+
+.link {
+  color: #111827;
+  text-decoration: underline;
+}
+
+.watermark {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  font-size: 12px;
+  fill: #818181;
+  opacity: 0.4;
+  bottom: 0;
+  left: 0;
+}
+
+.totalEmailsParent {
+  position: relative;
+  width: 100%;
+  height: 322px;
+  font-family: Inter, sans-serif;
+  color: #081735;
+}
+
+.totalEmails {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 447px;
+  height: 170px;
+  transform: translate(-50%, -50%);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 24px rgba(8, 23, 53, 0.16);
+  border-radius: 24px;
+  background-color: #fff;
+}
+
+.subtractParent {
+  position: absolute;
+  top: 21px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subtractIcon {
+  width: 28px;
+  height: 31px;
+}
+
+.aiToDetect {
+  line-height: 27px;
+  font-weight: bold;
+}
+
+.totalEmailsChild {
+  position: absolute;
+  top: 42%;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #e6e8f0;
+  box-sizing: border-box;
+}
+
+.parent,
+.kParent,
+.kGroup {
+  position: absolute;
+  top: 56%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.parent {
+  left: 4.5%;
+  width: 27.5%;
+}
+
+.kParent {
+  left: 42.2%;
+  width: 16.8%;
+}
+
+.kGroup {
+  right: 9.3%;
+  width: 19%;
+}
+
+.languageSupport {
+  font-size: 14px;
+  line-height: 20px;
+  color: #171717;
+}
+
+.card10 {
+  position: absolute;
+  top: 70%;
+  right: 12%;
+  width: 40%;
+  height: 50%;
+  font-size: 14px;
+  color: #0049c6;
+}
+
+.bg1 {
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 24px rgba(8, 23, 53, 0.16);
+  border-radius: 24px;
+  background-color: #fff;
+}
+
+.groupParent {
+  position: absolute;
+  top: 9%;
+  left: 12%;
+  width: 75.5%;
+  height: 81.3%;
+}
+
+.groupChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 27.5%;
+  height: 42.5%;
+}
+
+.uiIconArrowSmallRight2Parent {
+  position: absolute;
+  top: 6.8%;
+  right: 0;
+  width: 4rem;
+  height: 3rem;
+}
+
+.uiIconArrowSmallRight2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 24px;
+}
+
+.b1 {
+  position: absolute;
+  top: 5%;
+  left: 37%;
+  line-height: 20px;
+  font-weight: 800;
+}
+
+.thisWeek {
+  position: absolute;
+  top: 59%;
+  left: 11%;
+  font-size: 12px;
+  line-height: 16px;
+  color: #171717;
+}
+
+.issuesFixedParent {
+  position: relative;
+  top: 3rem;
+  width: 8rem;
+  height: 8rem;
+  color: #171717;
+  align-items: start;
+  align-content: start;
+}
+
+.issuesFixed {
+  line-height: 6px;
+  background: none;
+  box-shadow: none;
+  font-weight: 700;
+  display: flex;
+  align-items: start;
+  align-content: start;
+  margin-top: 0.7rem;
+  padding: 1rem 0rem;
+  padding-bottom: 0.7rem;
+  font-weight: 800;
+}
+
+.k2 {
+  position: relative;
+  font-size: 32px;
+  line-height: 32px;
+  color: #081735;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card10 {
+    right: 8%;
+    width: 60%;
+  }
+}
