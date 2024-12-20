@@ -1,0 +1,17 @@
+.input {
+  display: flex;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  background-color: transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: hsl(221.2 83.2% 53.3%);
+  box-shadow: 0 0 0 1px hsl(221.2 83.2% 53.3%);
+}
