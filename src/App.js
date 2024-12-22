@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './App.module.css'
 import { RepositoryList } from './components/repository/repository-list'
 import { Sidebar } from './layout/sidebar'
 import { AddRepositoryDialog } from './components/repository/add-repository-dialog'
+import { useAuth } from './context/auth-context'
+import { useNavigate } from 'react-router'
 
 const initialRepositories = [
   {
@@ -60,6 +62,16 @@ export default function App() {
   const [repositories, setRepositories] = useState(initialRepositories)
   const [searchQuery, setSearchQuery] = useState('')
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  // if user not exists then navigate to login page
+  useEffect(() => {
+    if (!user) {
+      navigate('/auth');
+      return null;
+    }
+  }, []);
 
   const filteredRepositories = repositories.filter(repo =>
     repo.name.toLowerCase().includes(searchQuery.toLowerCase())

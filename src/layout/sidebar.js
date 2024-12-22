@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { HomeIcon, CodeIcon, ShieldCheckIcon, BookOpenIcon, SettingsIcon, PhoneIcon, LogOutIcon, X, Menu } from 'lucide-react'
 import styles from './sidebar.module.css'
 import logo from '../logo.svg'
-import { Link, useLocation } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import Button from '../components/ui/button'
 import Select from '../components/ui/select'
+import { useAuth } from '../context/auth-context'
 
 const sidebarLinks = [
   { name: 'Repositories', href: '/', icon: HomeIcon },
@@ -18,12 +19,18 @@ const sidebarLinks = [
 
 export function Sidebar({ className }) {
   const [isOpen, setIsOpen] = useState(false)
+  const { logout } = useAuth()
+  const navigate = useNavigate()
   const [selectedUser, setSelectedUser] = useState('UtkarshDhairyaPanwar');
   const userOptions = [
     { value: 'UtkarshDhairyaPanwar', label: 'UtkarshDhairyaPanwar' },
   ];
   const currentHref = useLocation().pathname;
-  console.log(currentHref);
+
+  const handleLogout = () => {
+    logout()
+    navigate('/auth')
+  }
 
   return (
     <>
@@ -51,7 +58,11 @@ export function Sidebar({ className }) {
           {sidebarLinks.slice(0, -2).map((link) => {
             const Icon = link.icon
             return (
-              <Link key={link.name} href={link.href} className={link.href === currentHref ? styles.selectedRoute : styles.navLink }>
+              <Link
+                key={link.name}
+                href={link.href}
+                className={link.href === currentHref ? styles.selectedRoute : styles.navLink }
+              >
                 <Icon className={styles.navIcon} />
                 <span className={styles.navText}>{link.name}</span>
               </Link>
@@ -59,15 +70,27 @@ export function Sidebar({ className }) {
           })}
         </nav>
         <nav className={styles.bottomNav}>
-          {sidebarLinks.slice(-2).map((link) => {
-            const Icon = link.icon
-            return (
-              <Link key={link.name} href={link.href} className={link.href === currentHref ? styles.selectedRoute : styles.navLink }>
-                <Icon className={styles.navIcon} />
-                <span className={styles.navText}>{link.name}</span>
-              </Link>
-            )
-          })}
+          <Link
+            key={sidebarLinks[sidebarLinks.length - 2].name}
+            href={sidebarLinks[sidebarLinks.length - 2].href}
+            className={
+              sidebarLinks[sidebarLinks.length - 2].href === currentHref
+                ? styles.selectedRoute
+                : styles.navLink
+            }
+          >
+            <ShieldCheckIcon className={styles.navIcon} />
+            <span className={styles.navText}>{sidebarLinks[sidebarLinks.length - 2].name}</span>
+          </Link>
+          <div
+            key={sidebarLinks[sidebarLinks.length - 1].name}
+            onClick={handleLogout}
+            className={styles.navLink}
+            style={{ cursor: 'pointer' }}
+          >
+            <LogOutIcon className={styles.navIcon} />
+            <span className={styles.navText}>{sidebarLinks[sidebarLinks.length - 1].name}</span>
+          </div>
         </nav>
       </div>
     </>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowUp } from 'lucide-react'
 import styles from './auth.module.css'
 import { useAuth } from '../context/auth-context'
@@ -54,6 +54,11 @@ export default function AuthPage() {
   const [isLoading, setIsLoading] = useState(null)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    setDeploymentType('saas')
+  }
+  , [])
+
   const handleLogin = async (providerId) => {
     setIsLoading(providerId)
     try {
@@ -63,6 +68,7 @@ export default function AuthPage() {
       console.error('Login failed:', error)
     } finally {
       setIsLoading(null)
+      navigate('/')
     }
   }
 
@@ -130,12 +136,13 @@ export default function AuthPage() {
               items={deploymentOptions}
             />
 
+            <div className={styles.divider}></div>
+
             <div className={styles.providers}>
               {deploymentTypeOptions.map((provider) => (
                 <Button
                   key={provider.id}
                   variant="outline"
-                  fullWidth
                   className={styles.providerButton}
                   onClick={() => handleLogin(provider.id)}
                   disabled={!!isLoading}

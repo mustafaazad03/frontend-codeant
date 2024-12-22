@@ -407,6 +407,12 @@
   color: #081735;
 }
 
+.divider {
+  height: 1px;
+  background-color: #D5D7DA;
+  width: 100%;
+}
+
 @media (min-width: 1024px) {
   .container {
     grid-template-columns: 1fr 1fr;
@@ -417,11 +423,27 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .card10 {
     right: -2rem;
     width: 60%;
   }
+  .providers {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .title {
+    font-size: 18px;
+  }
+  
 }
 
 @media screen and (max-width: 1023px) {
