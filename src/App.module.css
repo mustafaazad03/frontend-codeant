@@ -5,12 +5,8 @@
 
 .main {
   flex: 1;
-  padding: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .main {
-    padding: 2rem;
-  }
+  background: #FAFAFA;
+  height: 100vh;
+  overflow: hidden;
 }
 

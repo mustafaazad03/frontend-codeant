@@ -7,6 +7,7 @@
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
+  margin-top: 0.15rem;
 }
 
 .default {
@@ -20,8 +21,8 @@
 }
 
 .outline {
-  background-color: transparent;
-  border: 1px solid hsl(214.3 31.8% 91.4%);
-  color: hsl(222.2 47.4% 11.2%);
+  background: #EFF8FF;
+  border: 1px solid #B2DDFF;
+  color: #175CD3;
 }
 
