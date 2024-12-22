@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowUp, Github, Gitlab, Key } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 import styles from './auth.module.css'
 import { useAuth } from '../context/auth-context'
 import { ToggleGroup } from '../components/ui/toggle-group'
@@ -17,18 +17,36 @@ const providers = [
   {
     id: 'github',
     name: 'Sign in with Github',
-    icon: <Github className={styles.providerIcon} />,
+    icon: "/github.png",
+  },
+  {
+    id: 'bitbucket',
+    name: 'Sign in with Bitbucket',
+    icon: "/bitbucket.png",
+  },
+  {
+    id: 'azure',
+    name: 'Sign in with Azure Devops',
+    icon: "/azure.png",
   },
   {
     id: 'gitlab',
     name: 'Sign in with GitLab',
-    icon: <Gitlab className={styles.providerIcon} />,
+    icon: "/gitlab.png",
+  },
+]
+
+const selfHostedProviders = [
+  {
+    id: 'gitlab',
+    name: 'Self Hosted GitLab',
+    icon: "/gitlab.png",
   },
   {
     id: 'sso',
     name: 'Sign in with SSO',
-    icon: <Key className={styles.providerIcon} />,
-  },
+    icon: "/sso.png",
+  }
 ]
 
 export default function AuthPage() {
@@ -48,18 +66,11 @@ export default function AuthPage() {
     }
   }
 
+  const deploymentTypeOptions = deploymentType === 'saas' ? providers : selfHostedProviders
+
   return (
     <div className={styles.container}>
       <div className={styles.stats}>
-        <div className={styles.statsHeader}>
-          <img
-            src={logo}
-            alt="CodeAnt AI Logo"
-            width={40}
-            height={40}
-          />
-          <h2>AI to Detect & Autofix Bad Code</h2>
-        </div>
         <div className={styles.totalEmailsParent}>
         <div className={styles.totalEmails}>
           <div className={styles.bg}></div>
@@ -98,47 +109,54 @@ export default function AuthPage() {
         </div>
       </div>
       </div>
+      <div className={styles.outerAuth}>
+        <div className={styles.auth}>
+          <div className={styles.authContent}>
+            <div className={styles.overallLogo}>
+              <img
+                src={logo}
+                alt="CodeAnt AI Logo"
+                width={40}
+                height={40}
+                className={styles.logo}
+              />
+              <span className={styles.logoText}>CodeAnt AI</span>
+            </div>
+            <h1 className={styles.title}>Welcome to CodeAnt AI</h1>
+            
+            <ToggleGroup
+              value={deploymentType}
+              onChange={(value) => setDeploymentType(value)}
+              items={deploymentOptions}
+            />
 
-      <div className={styles.auth}>
-        <div className={styles.authContent}>
-          <img
-            src={logo}
-            alt="CodeAnt AI Logo"
-            width={40}
-            height={40}
-            className={styles.logo}
-          />
-          <h1 className={styles.title}>Welcome to CodeAnt AI</h1>
-          
-          <ToggleGroup
-            value={deploymentType}
-            onChange={(value) => setDeploymentType(value)}
-            items={deploymentOptions}
-          />
+            <div className={styles.providers}>
+              {deploymentTypeOptions.map((provider) => (
+                <Button
+                  key={provider.id}
+                  variant="outline"
+                  fullWidth
+                  className={styles.providerButton}
+                  onClick={() => handleLogin(provider.id)}
+                  disabled={!!isLoading}
+                >
+                  <img src={provider.icon} alt="" className={styles.providerIcon} />
+                  <span className={styles.providerText}>
+                    {isLoading === provider.id ? 'Signing in...' : provider.name}
+                  </span>
+                </Button>
+              ))}
+            </div>
 
-          <div className={styles.providers}>
-            {providers.map((provider) => (
-              <Button
-                key={provider.id}
-                variant="outline"
-                fullWidth
-                icon={provider.icon}
-                onClick={() => handleLogin(provider.id)}
-                disabled={!!isLoading}
-              >
-                {isLoading === provider.id ? 'Signing in...' : provider.name}
-              </Button>
-            ))}
           </div>
-
-          <p className={styles.terms}>
-            By signing up you agree to the{' '}
-            <Link href="/privacy" className={styles.link}>
-              Privacy Policy
-            </Link>
-            .
-          </p>
         </div>
+        <p className={styles.terms}>
+          By signing up you agree to the{' '}
+          <Link href="/privacy" className={styles.link}>
+            Privacy Policy
+          </Link>
+          .
+        </p>
       </div>
       <div className={styles.watermark}>
         <img src={logo} alt="CodeAnt AI Logo" width={284} height={319} />

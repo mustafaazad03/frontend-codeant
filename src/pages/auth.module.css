@@ -7,7 +7,7 @@
 .stats {
   display: none;
   padding: 48px;
-  background-color: #F9FAFB;
+  background-color: #fff;
 }
 
 .statsHeader {
@@ -97,34 +97,92 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  background-color: #fff;
+  align-items: flex-start;
+  align-self: stretch;
+  height: fit-content;
+  width: 100%;
+  padding: 2rem 0;
+  margin-bottom: 3rem;
+}
+
+.outerAuth {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #FAFAFA;
+  margin: auto 0;
+  height: 100vh;
+  justify-content: center;
 }
 
 .authContent {
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
 }
 
+.overallLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1rem;
+  padding-top: 2rem;
+}
+
 .logo {
   margin-bottom: 8px;
 }
 
-.title {
+
+.logoText {
+  color: #181D27;
   font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+}
+
+.title {
+  color: #181D27;
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+  font-style: normal;
   font-weight: 600;
-  text-align: center;
-  margin-bottom: 24px;
+  line-height: 48px;
 }
 
 .providers {
-  width: 100%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 30vh;
+}
+
+.providerButton {
+  display: flex;
+  padding: 1.5rem 0rem !important;
+  justify-content: center;
+  align-items: center;
+  gap: 16px !important;
+  border-radius: 8px;
+  border: 1px solid #D8DAE5 !important;
+  background: #FFF !important;
+}
+
+.providerText {
+  color: #171717;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .providerIcon {
@@ -134,13 +192,24 @@
 
 .terms {
   font-size: 14px;
-  color: #818181;
   text-align: center;
+  color: #181D27;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 24px;
 }
 
 .link {
-  color: #111827;
-  text-decoration: underline;
+  text-decoration: none;
+  color: #181D27;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
 }
 
 .watermark {
@@ -152,12 +221,14 @@
   opacity: 0.4;
   bottom: 0;
   left: 0;
+  width: fit-content;
 }
 
 .totalEmailsParent {
   position: relative;
   width: 100%;
   height: 322px;
+  top: 15%; 
   font-family: Inter, sans-serif;
   color: #081735;
 }
@@ -240,9 +311,9 @@
 
 .card10 {
   position: absolute;
-  top: 70%;
-  right: 12%;
-  width: 40%;
+  top: 75%;
+  right: 3rem;
+  width: 35%;
   height: 50%;
   font-size: 14px;
   color: #0049c6;
@@ -346,9 +417,15 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .card10 {
-    right: 8%;
+    right: -2rem;
     width: 60%;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .watermark {
+    display: none;
   }
 }

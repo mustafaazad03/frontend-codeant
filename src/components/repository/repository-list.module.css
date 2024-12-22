@@ -54,7 +54,7 @@
 
 .searchInput::placeholder {
   color: #414651;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
 }
 
 .list {
@@ -87,12 +87,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
 }
 
 .repoName {
   color: #181D27;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -121,7 +121,7 @@
 
 .refreshButton {
   color: #414651;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
