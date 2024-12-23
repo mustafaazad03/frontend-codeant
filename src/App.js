@@ -5,6 +5,7 @@ import { Sidebar } from './layout/sidebar'
 import { AddRepositoryDialog } from './components/repository/add-repository-dialog'
 import { useAuth } from './context/auth-context'
 import { useNavigate } from 'react-router'
+import Navbar from './layout/mobile/navbar'
 
 const initialRepositories = [
   {
@@ -95,6 +96,7 @@ export default function App() {
   return (
     <div className={styles.container}>
       <Sidebar />
+      <Navbar />
       <main className={styles.main}>
         <RepositoryList
           repositories={filteredRepositories}

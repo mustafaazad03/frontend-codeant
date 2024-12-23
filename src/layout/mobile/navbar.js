@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { HomeIcon, CodeIcon, ShieldCheckIcon, BookOpenIcon, SettingsIcon, PhoneIcon, LogOutIcon, X, Menu } from 'lucide-react'
 import styles from './navbar.module.css'
 import logo from '../../logo.svg'
 import Button from '../../components/ui/button'
 import Select from '../../components/ui/select'
-import { useLocation, useNavigate } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import { useAuth } from '../../context/auth-context'
 
 const Navbar = () => {
@@ -35,7 +34,7 @@ const Navbar = () => {
 
 
   return (
-    <div className={styles.navbar}>
+    <div className={`${styles.navbar} ${isOpen ? styles.navActive : styles.notActive}`}>
       <div className={styles.mobileHeader}>
         <div className={styles.logoContainer}>
           <img src={logo} alt="Logo" className={styles.logoImage} />
@@ -64,11 +63,23 @@ const Navbar = () => {
         </div>
         {sidebarLinks.map((link) => {
           const Icon = link.icon
+          if (link.href === '/logout') {
+            return (
+              <div
+                key={link.name}
+                className={currentHref === link.href ? `${styles.navLink} ${styles.active}` : styles.navLink}
+                onClick={handleLogout}
+              >
+                <Icon className={styles.navIcon} />
+                <span>{link.name}</span>
+              </div>
+            )
+          }
           return (
             <Link
               to={link.href}
               key={link.name}
-              className={styles.navLink}
+              className={currentHref === link.href ? `${styles.navLink} ${styles.active}` : styles.navLink}
               onClick={() => setIsOpen(false)}
             >
               <Icon className={styles.navIcon} />
