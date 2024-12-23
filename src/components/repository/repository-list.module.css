@@ -1,0 +1,162 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 12px;
+  height: calc(100vh - 4rem);
+  margin: 2rem;
+  border: 1px solid #D5D7DA;
+  background: #FFF;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 2rem;
+  padding-top: 2rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 32px;
+  color: #181D27;
+}
+
+.subtitle {
+  color: #64748b;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.search {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 2rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 2.8rem;
+}
+
+.searchInput {
+  max-width: 22rem;
+  width: 100%;
+  padding-left: 2.8rem !important;
+}
+
+.searchInput::placeholder {
+  color: #414651;
+  font-family: Inter, sans-serif;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.repo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border-top: 1px solid #D5D7DA;
+  cursor: pointer;
+}
+
+/* Repo on focus or click */
+.repo:focus, .repo:active, .repo:hover {
+  background: #F5F5F5;
+}
+
+.repoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.repoHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: Inter, sans-serif;
+}
+
+.repoName {
+  color: #181D27;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}.repoMeta {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.repoLanguage {
+  display: flex;
+  align-items: center;
+}
+
+.languageDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  margin-top: 0.15rem;
+  background-color: #2563eb;
+}
+
+.refreshButton {
+  color: #414651;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .repo {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container {
+    margin: 1rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+    border-radius: 0%;
+    height: 100vh;
+  }
+
+  .repoMeta {
+    gap: 1.25rem;
+  }
+}

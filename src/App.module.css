@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  background: #FAFAFA;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin-top: 4rem;
+  }
+  
+}
